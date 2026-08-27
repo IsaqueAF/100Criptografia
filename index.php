@@ -1,5 +1,10 @@
 <?php
-// Este é a landingPage do projeto.
+require_once __DIR__ . "/actions/logged-in.php";
+
+if (isset($_SESSION["user_id"])) {
+    header("Location: project.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +16,10 @@
       <link rel="icon" href="assets/images/favicon.png">
 </head>
 <body>
-      
+      <a href="login.php">Entrar</a>
+      <br>
+      <a href="register.php">Cadastrar</a>
+      <br>
+      <a href="project.php">Testar sem uma conta</a>
 </body>
 </html> 

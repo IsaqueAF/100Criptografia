@@ -99,18 +99,18 @@ docker compose down
 
 ```text
 100Criptografia/
-├── actions/          # Processamento dos formulários
-├── assets/           # Arquivos CSS, JavaScript e imagens
-├── config/           # Configurações, incluindo a conexão com o banco
-├── includes/         # Componentes PHP reutilizáveis
-├── sql/              # Scripts de criação e configuração do banco
-├── index.php         # Página inicial
-├── register.php      # Página de cadastro
-├── login.php         # Página de login
-├── send-email.php    # Página de envio de e-mail
-├── recover-password.php # Página de recuperação de senha
-├── project.php       # Área principal do projeto
-├── config.php        # Configurações do usuário
+├── actions/                # Processamento dos formulários
+├── assets/                 # Arquivos CSS, JavaScript e imagens
+├── config/                 # Configurações, incluindo a conexão com o banco
+├── includes/               # Componentes PHP reutilizáveis
+├── sql/                    # Scripts de criação e configuração do banco
+├── index.php               # Página inicial
+├── register.php            # Página de cadastro
+├── login.php               # Página de login
+├── send-email.php          # Página de envio de e-mail
+├── recover-password.php    # Página de recuperação de senha
+├── project.php             # Área principal do projeto
+├── config.php              # Configurações do usuário
 ├── Dockerfile
 ├── docker-compose.yml
 └── README.md
