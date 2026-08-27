@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100 Criptografia</title>
+<link rel="stylesheet" href="CSS/projeto.css">
+</head>
+<body>
+  <div class="pagina pagina-projeto">
+    <header class="topo-projeto">
+      <a class="avatar" href="barra-lateral.html" aria-label="Abrir menu">U</a>
+      <div class="marca">
+        <span class="glifo">100</span>
+      </div>
+    </header>
+<div class="container-conversor">
+
+  <div class="menu-cifras">
+    <h3 class="titulo-secao">Escolha as Conversões</h3>
+    <div class="grid-opcoes-cifras">
+      <button class="opcao-cifra" data-nome="Número" data-cor="#ffff00">
+        <span class="cor-indicador" style="background-color: #ffff00;"></span> Número
+      </button>
+      <button class="opcao-cifra" data-nome="Texto" data-cor="#00ff00">
+        <span class="cor-indicador" style="background-color: #00ff00;"></span> Texto
+      </button>
+      <button class="opcao-cifra" data-nome="Binário" data-cor="#ff0000">
+        <span class="cor-indicador" style="background-color: #ff0000;"></span> Binário
+      </button>
+      <button class="opcao-cifra" data-nome="Octal" data-cor="#0000ff">
+        <span class="cor-indicador" style="background-color: #0000ff;"></span> Octal
+      </button>
+      <button class="opcao-cifra" data-nome="Hexadecimal" data-cor="#00ffff">
+        <span class="cor-indicador" style="background-color: #00ffff;"></span> Hexadecimal
+      </button>
+      <button class="opcao-cifra" data-nome="N° Romano" data-cor="#ff00ff">
+        <span class="cor-indicador" style="background-color: #ff00ff;"></span> N° Romano
+      </button>
+      <button class="opcao-cifra" data-nome="Morse" data-cor="#ffffff">
+        <span class="cor-indicador" style="background-color: #ffffff;"></span> Morse
+      </button>
+      <button class="opcao-cifra" data-nome="César" data-cor="#ff8c00">
+        <span class="cor-indicador" style="background-color: #ff8c00;"></span> César
+      </button>
+      <button class="opcao-cifra" data-nome="Bacon" data-cor="#00cc44">
+        <span class="cor-indicador" style="background-color: #00cc44;"></span> Bacon
+      </button>
+      <button class="opcao-cifra" data-nome="Atbash" data-cor="#e600e6">
+        <span class="cor-indicador" style="background-color: #e600e6;"></span> Atbash
+      </button>
+      <button class="opcao-cifra" data-nome="Vigenère" data-cor="#00008b">
+        <span class="cor-indicador" style="background-color: #00008b;"></span> Vigenère
+      </button>
+      <button class="opcao-cifra" data-nome="Playfair" data-cor="#0088ff">
+        <span class="cor-indicador" style="background-color: #0088ff;"></span> Playfair
+      </button>
+      <button class="opcao-cifra" data-nome="Hill" data-cor="#333333">
+        <span class="cor-indicador" style="background-color: #333333; border: 1px solid #777;"></span> Hill
+      </button>
+      <button class="opcao-cifra" data-nome="Enigma" data-cor="#8b0000">
+        <span class="cor-indicador" style="background-color: #8b0000;"></span> Enigma
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. Caminho onde as conversões serão inseridas -->
+  <div class="area-caminho">
+    <h3 class="titulo-secao">Caminho da Conversão</h3>
+    <div class="trilha" id="trilhaTracejada">
+      <!-- Linha serpenteante tracejada de fundo -->
+      <svg class="linha-fundo-svg" width="100%" height="100%">
+        <path d="M 20 25 H 95% V 75 H 5% V 125 H 95% V 175 H 5%" fill="none" stroke="#5c665f" stroke-width="2" stroke-dasharray="6,6" stroke-linejoin="round"/>
+      </svg>
+      
+      <!-- Container onde os quadrados das cifras ativas serão renderizados -->
+      <div class="container-quadrados-ativos" id="containerQuadradosAtivos">
+        <!-- Os quadrados entram aqui dinamicamente -->
+      </div>
+    </div>
+  </div>
+
+</div>
+    <main class="central">
+      <div class="area-conversao">
+        <h1 class="pergunta">O que deseja decifrar?</h1>
+
+        <div class="bloco-texto">
+          <textarea class="area-texto" id="texto-entrada" placeholder="Entrada..."></textarea>
+        </div>
+
+        <div class="conector">
+          <span class="conector-linha"></span>
+          <span class="conector-icone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </span>
+          <span class="conector-linha"></span>
+        </div>
+
+        <div class="bloco-texto">
+          <textarea class="area-texto" id="texto-saida" placeholder="Saída..." readonly></textarea>
+        </div>
+
+        <div class="rodape-projeto">
+          <div class="grupo-preset">
+            <div class="campo-entrada">
+              <input type="text" id="nome-preset" placeholder="Nome do preset">
+            </div>
+            <button type="button" class="botao botao-contorno" id="botao-salvar-preset">Salvar</button>
+          </div>
+          <button type="button" class="botao botao-claro" id="botao-converter">Converter</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
