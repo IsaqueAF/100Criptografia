@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recuperar senha — 100 Criptografia</title>
+<link rel="stylesheet" href="CSS/tyle.css">
+</head>
+<body>
+  <div class="pagina central">
+    <div style="position: relative;">
+      <a class="voltar" href="login.html" aria-label="Voltar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6"/></svg>
+      </a>
+
+      <div class="principal">
+        <div class="cabecalho">
+          <div class="marca">
+            <span class="glifo">100</span>
+          </div>
+          <span class="titulo">Recuperar senha</span>
+        </div>
+
+        <p class="descricao">Informe seu e-mail para solicitar uma nova senha.</p>
+
+        <form id="formulario-enviar-email" novalidate>
+          <p class="aviso-formulario" id="envio-email-aviso"></p>
+
+          <div class="campo">
+            <div class="campo-entrada">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>
+              <input type="email" id="envio-email" placeholder="E-mail" autocomplete="email">
+            </div>
+            <p class="campo-mensagem" id="envio-email-msg"></p>
+          </div>
+
+          <button type="submit" class="botao botao-claro botao-bloco">Enviar</button>
+        </form>
+
+        <p class="rodape">Lembrou da senha? <a href="login.html">Entrar</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

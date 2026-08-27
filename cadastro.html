@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro — 100 Criptografia</title>
+<link rel="stylesheet" href="CSS/tyle.css">
+</head>
+<body>
+  <div class="pagina central">
+    <div style="position: relative;">
+      <a class="voltar" href="index.html" aria-label="Voltar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6"/></svg>
+      
+      </a>
+
+      <div class="principal">
+        <div class="cabecalho">
+          <div class="marca">
+            <span class="glifo">100</span>
+          </div>
+          <span class="titulo">Cadastro</span>
+        </div>
+
+        <form id="formulario-cadastro">
+          <p class="aviso-formulario" id="cadastro-aviso"></p>
+
+          <div class="campo">
+            <div class="campo-entrada">
+              
+              <input type="text" id="cad-nome" placeholder="Nome" autocomplete="name">
+            </div>
+            <p class="campo-mensagem" id="cad-nome-msg"></p>
+          </div>
+
+          <div class="campo">
+            <div class="campo-entrada">
+              <input type="email" id="cad-email" placeholder="E-mail" autocomplete="email">
+            </div>
+            <p class="campo-mensagem" id="cad-email-msg"></p>
+          </div>
+
+          <div class="campo">
+            <div class="campo-entrada">
+              
+              <input type="password" id="cad-senha" placeholder="Senha" autocomplete="new-password">
+            </div>
+            <p class="campo-mensagem" id="cad-senha-msg"></p>
+          </div>
+
+          <div class="campo">
+            <div class="campo-entrada">
+              
+              <input type="password" id="cad-confirmar-senha" placeholder="Confirmar senha" autocomplete="new-password">
+            </div>
+            <p class="campo-mensagem" id="cad-confirmar-senha-msg"></p>
+          </div>
+
+          <button type="submit" class="botao botao-claro botao-bloco">Cadastrar</button>
+        </form>
+
+        <p class="cartao-rodape">Já tem uma conta? <a href="login.html">Entrar</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
