@@ -524,7 +524,7 @@ button { font-family: inherit; }
 
 .trilha {
   position: relative;
-  min-height: 200px;
+  min-height: 96px;
   padding: 10px;
 }
 
@@ -543,6 +543,39 @@ button { font-family: inherit; }
   gap: 12px;
   align-items: center;
 }
+
+.trilha-vazia {
+  margin: 10px 0;
+  color: var(--texto-fraco);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.etapa-cifra {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 8px 10px 8px 14px;
+  background: #292d2b;
+  border: 1px solid #666b68;
+  border-left: 4px solid var(--cor-etapa);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px #0008;
+  animation: surgimento 0.2s ease-out;
+}
+
+.etapa-cifra strong { font-size: 0.82rem; font-weight: 500; }
+.etapa-cifra span { color: #ddd; font-size: 1.35rem; line-height: 1; }
+.etapa-cifra button {
+  border: 0;
+  padding: 2px;
+  background: none;
+  color: #ddd;
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+.etapa-cifra button:hover { color: var(--cor-destaque); }
 
 .quadrado-cifra-ativo {
   width: 32px;

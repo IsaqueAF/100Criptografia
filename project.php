@@ -48,7 +48,7 @@ if (isset($_SESSION["user_id"])) {
   <?php if (isset($_SESSION["user_id"])): ?>
       <header class="topo-projeto">
         <button class="avatar" onclick="toggleSidebar()" aria-label="Abrir menu"><?php echo htmlspecialchars($_SESSION["user_data"]["nome"][0]); ?></button>
-        <button class="historico" onclick="toggleHistory()">Historico</button>
+        <button class="historico" type="button" id="botao-historico">Histórico</button>
         <image style="width: 5%; height: auto;" src="assets/images/icone.png" alt="Logo do site">
       </header>
   <?php else: ?>
@@ -98,19 +98,15 @@ if (isset($_SESSION["user_id"])) {
     </div>
   </div>
 
-  <!-- 2. Caminho onde as conversões serão inseridas -->
   <div class="area-caminho">
     <h3 class="titulo-secao">Caminho da Conversão</h3>
     <div class="trilha" id="trilhaTracejada">
-      <!-- Linha serpenteante tracejada de fundo -->
       <svg class="linha-fundo-svg" width="100%" height="100%">
         <path d="M 20 25 H 95% V 75 H 5% V 125 H 95% V 175 H 5%" fill="none" stroke="#5c665f" stroke-width="2" stroke-dasharray="6,6" stroke-linejoin="round"/>
       </svg>
       
-      <!-- Container onde os quadrados das cifras ativas serão renderizados -->
-      <div class="container-quadrados-ativos" id="containerQuadradosAtivos">
-        <!-- Os quadrados entram aqui dinamicamente -->
-      </div>
+      <div class="container-quadrados-ativos" id="containerQuadradosAtivos"></div>
+      <p class="trilha-vazia" id="trilhaVazia">Adicione uma etapa acima para começar.</p>
     </div>
   </div>
 
@@ -152,6 +148,14 @@ if (isset($_SESSION["user_id"])) {
     </main>
   </div>
 
+<script src="assets/js/conversions/atbash.js"></script>
+<script src="assets/js/conversions/bacon.js"></script>
+<script src="assets/js/conversions/binary.js"></script>
+<script src="assets/js/conversions/cesar.js"></script>
+<script src="assets/js/conversions/hexadecimal.js"></script>
+<script src="assets/js/conversions/octal.js"></script>
+<script src="assets/js/conversions/playfair.js"></script>
+<script src="assets/js/conversions/text.js"></script>
 <script src="assets/js/project.js"></script>
 </body>
 </html>

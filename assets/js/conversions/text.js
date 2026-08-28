@@ -1,4 +1,4 @@
-function codificacao(texto) {   
+function codificacaoTexto(texto) {
     let resultado = "";
 
     for (let i = 0; i < texto.length; i++) {
@@ -19,7 +19,7 @@ function codificacao(texto) {
 }
 
 
-function decodificacao(digito) {   
+function decodificacaoTexto(digito) {
     let resultado = "";
 
     let blocoAscii = digito.split(" ");

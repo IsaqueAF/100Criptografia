@@ -1,5 +1,5 @@
 function codificarAtbash(texto) {
-    alfabetoAtbash = [
+    const alfabetoAtbash = [
         // MAIUSCULO PORQUE TABELA ASCII É DOOM
     ['A', 'Z'], ['B', 'Y'], ['C', 'X'], ['D', 'W'],
     ['E', 'V'], ['F', 'U'], ['G', 'T'], ['H', 'S'], ['I', 'R'], ['J', 'Q'],
@@ -18,10 +18,15 @@ function codificarAtbash(texto) {
     let resultado = "";
 
     for (let i = 0; i < texto.length; i++ ) {
+        let convertido = false;
         for (let j = 0; j < alfabetoAtbash.length; j++) {
             if (texto[i] === alfabetoAtbash[j][0]) {
-                resultado += alfabetoAtbash[j][1]
+                resultado += alfabetoAtbash[j][1];
+                convertido = true;
             }
+        }
+        if (!convertido) {
+            resultado += texto[i];
         }
     
     }

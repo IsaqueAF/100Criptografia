@@ -2,7 +2,7 @@ function codificarBinario(texto) {
     let resultado = "";
 
     // Codificar
-    for(i = 0; i < texto.length; i ++) {
+    for (let i = 0; i < texto.length; i++) {
         let userSend = texto[i];
         let codigo = userSend.charCodeAt(0);
 
@@ -19,7 +19,7 @@ function codificarBinario(texto) {
 function decodificarBinario(texto) {
     let resultado = "";
 
-    for(i = 0; i < texto.length; i+=8) {
+    for (let i = 0; i < texto.length; i += 8) {
         let binaryBlock = texto.substring(i, i + 8);
         const converter = parseInt(binaryBlock, 2);
         const ogText = String.fromCharCode(converter);

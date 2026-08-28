@@ -1,4 +1,4 @@
-function codificacao(texto, chave) {   
+function codificacaoCesar(texto, chave) {
     let resultado = "";
 
     for (let i = 0; i < texto.length; i++) {
@@ -24,7 +24,7 @@ function codificacao(texto, chave) {
 }
 
 
-function decodificacao(texto, chave) {
+function decodificacaoCesar(texto, chave) {
     let resultado = "";
 
     for (let i = 0; i < texto.length; i++) {

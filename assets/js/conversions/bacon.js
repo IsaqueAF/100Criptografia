@@ -5,9 +5,8 @@ function codificarBacon(texto) {
     
     const codigos = [
         "aaaaa", "aaaab", "aaaba", "aaabb", "aabaa", "aabab", "aabba", "aabbb", 
-        "abaaa", "abaaa", "abaab", "ababa", "ababb", "abbaa", "abbab", "abbba", 
-        "abbbb", "baaaa", "baaab", "baaba", "baabb", "baabb", "babaa", "babab", 
-        "babba", "babbb"
+        "abaaa", "abaab", "ababa", "ababb", "abbaa", "abbab", "abbba", "abbbb", 
+        "baaaa", "baaab", "baaba", "baabb", "babaa", "babab", "babba", "babbb", 
     ];
 
     let resultado = "";
@@ -32,9 +31,8 @@ function decodificarBacon(textoCifrado) {
     
     const codigos = [
         "aaaaa", "aaaab", "aaaba", "aaabb", "aabaa", "aabab", "aabba", "aabbb", 
-        "abaaa", "abaaa", "abaab", "ababa", "ababb", "abbaa", "abbab", "abbba", 
-        "abbbb", "baaaa", "baaab", "baaba", "baabb", "baabb", "babaa", "babab", 
-        "babba", "babbb"
+        "abaaa", "abaab", "ababa", "ababb", "abbaa", "abbab", "abbba", "abbbb", 
+        "baaaa", "baaab", "baaba", "baabb", "babaa", "babab", "babba", "babbb"
     ];
 
     let resultado = "";
@@ -54,5 +52,3 @@ function decodificarBacon(textoCifrado) {
 }
 
 
-const codigoParaDecifrar = "baaaa aabaa abaaa";
-console.log(decodificarBacon(codigoParaDecifrar)); 
