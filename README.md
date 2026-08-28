@@ -33,6 +33,7 @@ Antes de iniciar o projeto, instale:
 Crie um arquivo `.env` na raiz do projeto com as configurações do MySQL:
 
 ```env
+MYSQL_HOST=db
 MYSQL_ROOT_PASSWORD=senha_root
 MYSQL_DATABASE=100criptografia
 MYSQL_USER=usuario
