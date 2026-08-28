@@ -2,54 +2,108 @@
 require_once __DIR__ . "/actions/logged-in.php";
 require_once __DIR__ . "/includes/message-manager.php";
 
+echo getMessage("database_anomaly");
+
+$confirm_access = !empty(getMessage("confirm-access"));
+
 if (!isset($_SESSION["user_id"])) {
     header("Location: index.php");
     exit();
 }
+
+if ($confirm_access) {
+      addMessage("config-free", "1", false);
+} else {
+      clearMessages("config-free");
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100Criptografia</title>
-    <link rel="icon" href="assets/images/favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurações — 100 Criptografia</title>
+<link rel="stylesheet" href="assets/css/configuracoes.css">
+<link rel="icon" href="assets/images/favicon.png">
 </head>
 <body>
-    <a href="project.php">Voltar</a>
-    <form action="actions/alter-data.php" method="POST" novalidate>
-            <label for="username">Nome de usuário:</label>
-            <br>
-            <input type="text" id="username" name="username" placeholder="<?php echo htmlspecialchars($_SESSION["user_data"]["nome"]); ?>">
-            <br>
-            <span style="color: red;"><?php echo getMessage("username-config-error"); ?></span>
-            <label for="email">Email:</label>
-            <br>
-            <input type="email" id="email" name="email" placeholder="<?php echo htmlspecialchars($_SESSION["user_data"]["email"]); ?>">
-            <br>
-            <span style="color: red;"><?php echo getMessage("email-config-error"); ?></span>
-            <label for="password">Senha:</label>
-            <br>
-            <input type="password" id="password" name="password">
-            <br> 
-            <span style="color: red;"><?php echo getMessage("password-config-error"); ?></span>
+  <div class="pagina central">
+    <div style="position: relative; width: 100%; max-width: 420px;">
+      <a class="voltar" href="project.php" >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6"/></svg>
+      </a>
+
+      <div class="principal principal-config">
+        <div class="cabecalho">
+          <image style="width: 100%; height: auto;" src="assets/images/titulo-configuracoes.png" alt="Logo do site">
+        </div>
+
+        <p class="rotulo-secao">Dados / Informações</p>
+
+        <form id="formulario-config" action="actions/update-data.php" method="POST" novalidate>
+          <div class="campo">
+            <div class="campo-entrada">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" id="config-nome" placeholder="<?php echo htmlspecialchars($_SESSION["user_data"]["nome"]) ?>" autocomplete="name" name="username" value="<?php echo getMessage("username"); ?>">
+            </div>
+            <p class="campo-mensagem" id="config-nome-msg" style="color: red;"><?php echo getMessage("username-config-error"); ?></p>
+          </div>
+
+          <div class="campo">
+            <div class="campo-entrada">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>
+              <input type="email" id="config-email" placeholder="<?php echo htmlspecialchars($_SESSION["user_data"]["email"]) ?>" autocomplete="email" name="email" value="<?php echo getMessage("email"); ?>">
+            </div>
+            <p class="campo-mensagem" id="config-email-msg" style="color: red;"><?php echo getMessage("email-config-error"); ?></p>
+          </div>
+
+          <div class="campo">
+            <div class="campo-entrada">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="config-senha" placeholder="A senha é ocultada por segurança" autocomplete="new-password" name="password" value="<?php echo getMessage("password"); ?>">
+            </div>
+            <p class="campo-mensagem" id="config-senha-msg" style="color: red;"><?php echo getMessage("password-config-error"); ?></p>
+          </div>
+
+          <p class="aviso-formulario" id="config-aviso">
             <span style="color: green;"><?php echo getMessage("config-success"); ?></span>
-            <br>
-            <button type="submit">Alterar Dados</button>
-      </form>
-      <br>
-      <form style="background-color: gray;" action="password-needed.php" method="POST" novalidate>
-            <label for="password">Senha:</label>
-            <br>
-            <input type="password" id="password" name="password">
-            <br> 
-            <span style="color: red;"><?php echo getMessage("password-config-error"); ?></span>
-            <button type="submit">Alterar Senha</button>
-      </form>
-      <br>
-      <form action="actions/delete-account.php" method="POST" novalidate>
-            <button type="submit">Deletar Conta</button>
-      </form>
+          </p>
+
+          <button type="submit" class="botao botao-claro botao-bloco">Atualizar dados</button>
+        </form>
+      
+      <div class="secao-perigo">
+            <a href="actions/delete-account.php" class="botao botao-perigo" id="botao-deletar-conta">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.7 3.86a2 2 0 0 0-3.4 0Z"/></svg>
+                  Deletar conta
+            </a>
+      </div>
+
+      <?php 
+            if (!$confirm_access) {
+                  ?>
+                  <form if="formulario-sobreposicao" action="actions/validate-password.php" method="POST" nocalidate>
+                    <div class="sobreposicao" id="sobreposicao-senha">
+                      <div class="modal">
+                        <p class="modal-texto">É necessário a senha para fazer qualquer alteração de informações.</p>
+                        <div class="campo">
+                          <div class="campo-entrada">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <input type="password" id="confirmar-senha-atual" name="password" placeholder="Senha" value="<?php echo getMessage("validate-password"); ?>">
+                          </div>
+                        </div>
+                        <p class="campo-mensagem" id="config-email-msg" style="color: red;"><?php echo getMessage("validate-password-error"); ?></p>
+                        <p class="rodape" style="margin: -6px 0 16px;"><a href="send-email.php">Esqueci minha senha</a></p>
+                        <button type="submit" class="botao botao-claro botao-bloco" id="botao-confirmar-senha">Confirmar</button>
+                      </div>
+                    </div>
+                  </form>
+                  <?php
+            }
+      ?>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

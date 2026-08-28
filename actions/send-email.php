@@ -3,16 +3,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once __DIR__ . "/../includes/message-manager.php";
     require_once __DIR__ . "/../config/database.php";
 
-    $to = $_POST["email"];
-    if (!filter_var($to, FILTER_VALIDATE_EMAIL)) {
-        addMessage("send-email-error", "E-mail inválido.");
+    $to = htmlspecialchars($_POST["email"]);
+    addmessage("email", $email, false);
+    if (empty($email)) {
+        addMessage("email-login-error", "O e-mail é obrigatório.");
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        addMessage("email-login-error", "E-mail inválido.");
     }
 
     $subject = "Teste de envio de e-mail";
     $message = "Olá mundo!";
     $headers = "From:\r\n";
 
-    if (hasMessages()) {
+    if (hasMessages("email-login-error")) {
         header("Location: ../register.php");
         exit();
     }

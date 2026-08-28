@@ -257,7 +257,6 @@ button { font-family: inherit; }
 .campo-entrada input::placeholder { color: var(--texto-fraco); }
 
 .campo-mensagem {
-  display: none;
   margin: 6px 4px 0;
   font-size: 0.72rem;
   line-height: 1.5;
@@ -275,7 +274,6 @@ button { font-family: inherit; }
 .rodape a:hover { color: var(--cor-destaque); }
 
 .aviso-formulario {
-  display: none;
   margin: 0 0 16px;
   font-size: 0.75rem;
   line-height: 1.5;
