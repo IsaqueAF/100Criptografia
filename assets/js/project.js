@@ -109,9 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const entrada = document.getElementById('texto-entrada').value;
         const saida = converter(entrada);
         document.getElementById('texto-saida').value = saida;
-        if (etapas.length) {
-            try { await requisicao({ acao: 'historico', entrada, saida, estrutura: etapas }); } catch (erro) { alert(erro.message); }
-        }
+        try { await requisicao({ acao: 'historico', entrada, saida, estrutura: etapas }); } catch (erro) { alert(erro.message); }
     });
     document.getElementById('botao-historico')?.addEventListener('click', async () => {
         try {
