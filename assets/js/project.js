@@ -14,6 +14,7 @@ let presetSelecionado = null;
 function pedirParametros(tipo) {
     if (tipo === 'cesar') return { chave: Number(prompt('Chave César:', '3')) || 0 };
     if (tipo === 'playfair') return { chave: prompt('Chave Playfair:', 'CHAVE') || 'CHAVE' };
+    if (tipo === 'vigenere') return { chave: prompt('Chave Vigenère:', 'CHAVE') || 'CHAVE' };
     return {};
 }
 
@@ -30,7 +31,7 @@ function desenharTrilha() {
         card.innerHTML = `<strong>${etapa.nome}</strong><span>${etapa.modo === 'decodificar' ? '←' : '→'}</span><button type="button" data-acao="editar" aria-label="Editar etapa">✎</button><button type="button" data-acao="remover" aria-label="Remover etapa">×</button>`;
         card.querySelector('[data-acao="editar"]').onclick = () => {
             etapa.modo = etapa.modo === 'codificar' ? 'decodificar' : 'codificar';
-            if (etapa.nome === 'César' || etapa.nome === 'Playfair') etapa.parametros = pedirParametros(nomes[etapa.nome]);
+            if (['César', 'Playfair', 'Vigenère'].includes(etapa.nome)) etapa.parametros = pedirParametros(nomes[etapa.nome]);
             desenharTrilha();
         };
         card.querySelector('[data-acao="remover"]').onclick = () => { etapas.splice(indice, 1); desenharTrilha(); };
@@ -51,19 +52,11 @@ function converter(texto) {
         if (tipo === 'texto') return etapa.modo === 'codificar' ? codificacaoTexto(valor) : decodificacaoTexto(valor);
             if (tipo === 'numero') return etapa.modo === 'codificar' ? codificacaoTexto(valor) : decodificacaoTexto(valor);
             if (tipo === 'playfair') return etapa.modo === 'codificar' ? codificacaoPlayfair(valor, parametros.chave) : decodificacaoPlayfair(valor, parametros.chave);
-        if (tipo === 'vigenere') return vigenere(valor, parametros.chave || 'CHAVE', etapa.modo === 'decodificar');
+        if (tipo === 'vigenere') return etapa.modo === 'codificar'
+            ? codificacaoVigenere(valor, parametros.chave)
+            : decodificacaoVigenere(valor, parametros.chave);
         return valor;
     }, texto);
-}
-
-function vigenere(texto, chave, decodificar) {
-    let indice = 0;
-    return [...texto].map(caractere => {
-        if (!/[a-z]/i.test(caractere)) return caractere;
-        const deslocamento = (chave.toUpperCase().charCodeAt(indice++ % chave.length) - 65) * (decodificar ? -1 : 1);
-        const base = caractere === caractere.toUpperCase() ? 65 : 97;
-        return String.fromCharCode((caractere.charCodeAt(0) - base + deslocamento + 26) % 26 + base);
-    }).join('');
 }
 
 async function requisicao(dados) {

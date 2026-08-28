@@ -156,6 +156,7 @@ if (isset($_SESSION["user_id"])) {
 <script src="assets/js/conversions/octal.js"></script>
 <script src="assets/js/conversions/playfair.js"></script>
 <script src="assets/js/conversions/text.js"></script>
+<script src="assets/js/conversions/vigenere.js"></script>
 <script src="assets/js/project.js"></script>
 </body>
 </html>
